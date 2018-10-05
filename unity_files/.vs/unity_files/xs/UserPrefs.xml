@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{E0222445-77FC-6516-AB57-2E06A5CD0F18}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/scripts/drag_mouse_orbit.cs">
+    <Files>
+      <File FileName="Assets/scripts/tank_movement.cs" Line="10" Column="18" />
+      <File FileName="Assets/scripts/ship_movement.cs" Line="46" Column="5" />
+      <File FileName="Assets/scripts/drag_mouse_orbit.cs" Line="13" Column="28" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
