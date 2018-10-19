@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class drag_mouse_orbit : MonoBehaviour
+public class DragMouseOrbit : MonoBehaviour
 {
 
     public Transform target;

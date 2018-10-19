@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ship_movement : MonoBehaviour {
+public class ShipMovement : MonoBehaviour {
 
     public int speed;
     public int shootModifier;
