@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class ShipMovement : MonoBehaviour {
 
-    public int speed;
-    public int shootModifier;
+    public GameObject bulletPrefab;
+    public GameObject bulletEmitter;
+    public float speed;
+    public float shootModifier;
+    public float bulletModifier;
     int shootTime = 0;
-    public Rigidbody rb;
+    private Rigidbody rb;
 
     void Start()
     {
@@ -38,9 +41,27 @@ public class ShipMovement : MonoBehaviour {
         } else {
             if (shootTime > 0){
                 rb.AddRelativeForce(Vector3.down * shootTime * shootModifier);
+                Fire(shootTime);
             }
             shootTime = 0;
         }
+    }
+
+    void Fire(int shootTime)
+    {
+        // Create the Bullet from the Prefab
+        GameObject bulletClone;
+        bulletClone = Instantiate(bulletPrefab, bulletEmitter.transform.position, bulletEmitter.transform.rotation) as GameObject;
+
+        //Retrieve the Rigidbody component from the instantiated Bullet and control it.
+        Rigidbody Temporary_RigidBody;
+        Temporary_RigidBody = bulletClone.GetComponent<Rigidbody>();
+
+        //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force.
+        Temporary_RigidBody.AddForce(transform.up * shootTime * bulletModifier, ForceMode.Impulse);
+
+        // Destroy the bullet after 2 seconds
+        Destroy(bulletClone, 5.0f);
     }
 
 }
