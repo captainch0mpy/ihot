@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class ShipMovement : MonoBehaviour {
+public class ShipMovement : NetworkBehaviour {
 
     public GameObject bulletPrefab;
     public GameObject bulletEmitter;
@@ -19,6 +20,9 @@ public class ShipMovement : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        if (hasAuthority == false) {
+            return;
+        }
         if (Input.GetKey(KeyCode.A)) {
             transform.Rotate(Vector3.back * speed * Time.deltaTime);
         }
