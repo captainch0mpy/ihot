@@ -9,7 +9,6 @@ public class CageCollider : MonoBehaviour {
   public Rigidbody ship;
   private Rigidbody cage;
   private bool collision = false;
-  private int impulseForce = 6000;
   private Vector3 lastPosition = new Vector3(0, 0, 0);
   #endregion
   // Use this for initialization
@@ -22,7 +21,8 @@ public class CageCollider : MonoBehaviour {
 	void Update () {
     Debug.Log("collision: " + collision + ", last position: " + lastPosition);
     if (collision) {
-      ship.AddForce(-ship.velocity.normalized * impulseForce * Time.deltaTime, ForceMode.Impulse);
+      Vector3 direction = ship.transform.position - cage.transform.position;
+      ship.AddForceAtPosition(-direction.normalized * direction.magnitude, cage.transform.position);
     } else {
       lastPosition = ship.transform.position;
     }
