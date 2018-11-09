@@ -9,16 +9,19 @@ public class PlayerConnectionObject : NetworkBehaviour {
 
     // Use this for initialization
 	void Start () {
+        Debug.Log("hello");
         // Is this my local player object
         if(isLocalPlayer == false) {
             //This object belongs to another player
             return;
         }
 
+        Debug.Log("local player");
+
         // Give the player, which is invisible, something to control
         // Command the server to spawn our unit
         CmdSpawnShip();
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -30,6 +33,8 @@ public class PlayerConnectionObject : NetworkBehaviour {
     void CmdSpawnShip () {
         // Create on the server
         GameObject go = Instantiate(ShipPrefab);
+
+        Debug.Log("Instantiated PlayerShip.");
 
         // Propogate to all clients and wire up network identity
         NetworkServer.SpawnWithClientAuthority(go, connectionToClient);

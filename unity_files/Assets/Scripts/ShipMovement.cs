@@ -12,6 +12,7 @@ public class ShipMovement : NetworkBehaviour {
     public float bulletModifier;
     int shootTime = 0;
     private Rigidbody rb;
+    private bool SetCamera = false;
 
     void Start()
     {
@@ -22,6 +23,17 @@ public class ShipMovement : NetworkBehaviour {
     void Update () {
         if (hasAuthority == false) {
             return;
+        } else if (SetCamera == false) {
+            Debug.Log("has auth");
+
+            //This gets the Main Camera from the Scene
+            Camera MainCamera = Camera.main;
+            if (MainCamera != null)
+            {
+                Debug.Log("main camera found");
+            }
+            MainCamera.GetComponent<DragMouseOrbit>().target = transform;
+            SetCamera = true;
         }
         if (Input.GetKey(KeyCode.A)) {
             transform.Rotate(Vector3.back * speed * Time.deltaTime);
@@ -40,28 +52,34 @@ public class ShipMovement : NetworkBehaviour {
             transform.Rotate(-Vector3.left * speed * Time.deltaTime);
         }
 
-        if (Input.GetMouseButton(0)) {
-            shootTime += 1;
-        } else {
-            if (shootTime > 0){
-                rb.AddRelativeForce(Vector3.down * shootTime * shootModifier);
-                Fire(shootTime);
-            }
-            shootTime = 0;
-        }
+        //if (Input.GetMouseButton(0)) {
+        //    shootTime += 1;
+        //} else {
+        //    if (shootTime > 0){
+        //        rb.AddRelativeForce(Vector3.down * shootTime * shootModifier);
+        //        CmdFire(shootTime);
+        //    }
+        //    shootTime = 0;
+        //}
     }
 
-    void Fire(int shootTime)
+
+    // Commands are special functions that only get executed on the server.
+    [Command]
+    void CmdFire(int shootTime)
     {
         // Create the Bullet from the Prefab
         GameObject bulletClone;
         bulletClone = Instantiate(bulletPrefab, bulletEmitter.transform.position, bulletEmitter.transform.rotation) as GameObject;
 
+        // Propogate to all clients and wire up network identity
+        NetworkServer.SpawnWithClientAuthority(bulletClone, connectionToClient);
+
         //Retrieve the Rigidbody component from the instantiated Bullet and control it.
         Rigidbody Temporary_RigidBody;
         Temporary_RigidBody = bulletClone.GetComponent<Rigidbody>();
 
-        //Tell the bullet to be "pushed" forward by an amount set by Bullet_Forward_Force.
+        //Tell the bullet to be "pushed" forward.
         Temporary_RigidBody.AddForce(transform.up * shootTime * bulletModifier, ForceMode.Impulse);
 
         // Destroy the bullet after 2 seconds
