@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4567365664700824}
   - component: {fileID: 33201310326886646}
   - component: {fileID: 23170110650257694}
+  - component: {fileID: 54432499145868540}
+  - component: {fileID: 136371448059965898}
   m_Layer: 0
   m_Name: Asteroid_Brown7
   m_TagString: Untagged
@@ -83,3 +85,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1155683192918188}
   m_Mesh: {fileID: 4300012, guid: 611b295d2cfc20f43b1f45039ab13053, type: 3}
+--- !u!54 &54432499145868540
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1155683192918188}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &136371448059965898
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1155683192918188}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 1.0197672
+  m_Height: 3.4132822
+  m_Direction: 2
+  m_Center: {x: 0.07301557, y: 0.024217606, z: 0}

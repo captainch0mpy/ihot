@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4383452355962806}
   - component: {fileID: 33111314972403390}
   - component: {fileID: 23283066215048156}
+  - component: {fileID: 54328456067745000}
+  - component: {fileID: 136317783898228828}
   m_Layer: 0
   m_Name: Asteroid_White6
   m_TagString: Untagged
@@ -83,3 +85,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1585333005226178}
   m_Mesh: {fileID: 4300010, guid: 611b295d2cfc20f43b1f45039ab13053, type: 3}
+--- !u!54 &54328456067745000
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585333005226178}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &136317783898228828
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1585333005226178}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.89826965
+  m_Height: 2.9140925
+  m_Direction: 2
+  m_Center: {x: -0.05751729, y: 0.03532982, z: 0.036721945}

@@ -21,6 +21,8 @@ GameObject:
   - component: {fileID: 4112602060567950}
   - component: {fileID: 33968457289275236}
   - component: {fileID: 23491786225429002}
+  - component: {fileID: 54080205032729886}
+  - component: {fileID: 136631106579755992}
   m_Layer: 0
   m_Name: Asteroid_Grey1
   m_TagString: Untagged
@@ -83,3 +85,31 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1278143737603518}
   m_Mesh: {fileID: 4300000, guid: 611b295d2cfc20f43b1f45039ab13053, type: 3}
+--- !u!54 &54080205032729886
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278143737603518}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!136 &136631106579755992
+CapsuleCollider:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1278143737603518}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.9355762
+  m_Height: 2.7389512
+  m_Direction: 2
+  m_Center: {x: -0.120518446, y: 0.07591534, z: 0.060135603}
